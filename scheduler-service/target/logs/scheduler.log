@@ -1,0 +1,36 @@
+2026-04-19 17:31:27.070 [main] INFO  c.e.scheduler.SchedulerApplication - Starting SchedulerApplication v1.0.0 using Java 1.8.0_131 on DESKTOP-0NA0G0E with PID 5804 (E:\workspace_alibaba\scheduler-service\target\scheduler-service-1.0.0.jar started by Administrator in E:\workspace_alibaba\scheduler-service\target)
+2026-04-19 17:31:27.080 [main] INFO  c.e.scheduler.SchedulerApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-19 17:31:31.777 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-19 17:31:31.785 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-19 17:31:31.785 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.83]
+2026-04-19 17:31:32.039 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-19 17:31:32.250 [main] INFO  c.e.s.config.DataSourceConfig - 正在初始化Oracle数据源...
+2026-04-19 17:31:32.250 [main] INFO  c.e.s.config.DataSourceConfig - 数据库URL: jdbc:oracle:thin:@127.0.0.1:1521:ORCL
+2026-04-19 17:31:32.255 [main] INFO  c.e.s.config.DataSourceConfig - 数据库用户名: wzh
+2026-04-19 17:31:32.645 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-19 17:31:34.404 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-19 17:31:34.415 [main] INFO  c.e.s.config.DataSourceConfig - Oracle数据库连接测试成功！
+2026-04-19 17:31:37.927 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-19 17:31:38.074 [main] INFO  c.e.scheduler.SchedulerApplication - Started SchedulerApplication in 12.251 seconds (JVM running for 13.086)
+2026-04-19 17:32:00.010 [scheduling-1] INFO  c.e.scheduler.job.ScheduledTask - oracle-data-sync 任务开始执行，开始时间：2026-04-19 17:32:00
+2026-04-19 17:37:09.210 [scheduling-1] ERROR c.e.scheduler.job.ScheduledTask - oracle-data-sync 任务执行失败：sleep interrupted
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method)
+	at com.example.scheduler.job.ScheduledTask.executeTask(ScheduledTask.java:55)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+2026-04-19 17:37:09.211 [scheduling-1] INFO  c.e.scheduler.job.ScheduledTask - oracle-data-sync 任务结束执行，结束时间：2026-04-19 17:37:09
+2026-04-19 17:37:09.212 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-19 17:37:09.234 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

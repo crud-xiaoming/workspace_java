@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: scheduler-service
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@127.0.0.1:1521:ORCL
+    username: wzh
+    password: abc123
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 2
+
+# 定时任务配置（支持cron表达式）
+scheduler:
+  task:
+    enabled: true
+    cron: "${TASK_CRON:0 0/2 * * * ?}"      # 默认每2分钟执行一次
+    job-name: "oracle-data-sync"
+
+server:
+  port: 8080
+
+# Actuator 配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
